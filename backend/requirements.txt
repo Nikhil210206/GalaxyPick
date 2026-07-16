@@ -1,0 +1,15 @@
+# Runtime — what server.py and phones.py actually import.
+# Deliberately unpinned: the previous pins (fastapi==0.110.1, uvicorn==0.25.0) failed to
+# resolve on modern Python and pulled a wheel from a third-party asset host.
+fastapi
+uvicorn
+motor                 # brings pymongo
+pymongo
+pydantic
+python-dotenv
+httpx                 # /api/location
+google-genai          # Galaxy AI chat
+
+# Tests
+pytest
+pytest-xdist          # pytest.ini requires it: addopts = -n 2 --dist loadscope

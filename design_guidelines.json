@@ -1,0 +1,223 @@
+{
+  "app_name": "GalaxyPick",
+  "theme_and_context": {
+    "theme": "Samsung Brand Theme - Clean, Minimalist, Persona-based Recommender",
+    "description": "A high-end, persona-based e-commerce / recommendation engine. Must evoke trust, premium quality, and simplicity. Focus on white space, soft shadows, rounded elements, and vivid Samsung Blue accents.",
+    "theme_mode": "light",
+    "forbidden_colors": ["#7351B7", "#1B93A4"]
+  },
+  "typography": {
+    "primary_font": "Geist, sans-serif",
+    "secondary_font": "Manrope, sans-serif",
+    "headings": {
+      "family": "Manrope, sans-serif",
+      "weight": "800",
+      "tracking": "tracking-tight",
+      "notes": "No Inter, Roboto, Open Sans, or Lato for headings."
+    },
+    "body": {
+      "family": "Geist, sans-serif",
+      "weight": "400",
+      "leading": "leading-relaxed"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900",
+      "h3": "text-xl sm:text-2xl font-bold text-gray-900",
+      "h4": "text-lg sm:text-xl font-semibold text-gray-800",
+      "body_main": "text-base text-gray-600",
+      "body_small": "text-sm text-gray-500",
+      "labels": "text-xs font-bold uppercase tracking-[0.2em] text-gray-400"
+    }
+  },
+  "colors": {
+    "primary": {
+      "DEFAULT": "#1B4EFF",
+      "hover": "#1428A0",
+      "light": "#E8F0FE",
+      "description": "Samsung's electric blue. Use for primary buttons, active states, and brand accents."
+    },
+    "secondary": {
+      "DEFAULT": "#000000",
+      "description": "Pure black for high-contrast e-commerce headings and primary action text if needed."
+    },
+    "background": {
+      "main": "#FFFFFF",
+      "subtle": "#F7F7F7",
+      "card": "#FFFFFF",
+      "sidebar": "#F8F9FA"
+    },
+    "text": {
+      "primary": "#111111",
+      "secondary": "#555555",
+      "tertiary": "#888888",
+      "inverse": "#FFFFFF"
+    },
+    "status": {
+      "match_badge": "#00C853",
+      "match_badge_text": "#FFFFFF",
+      "error": "#FF3B30",
+      "warning": "#FF9500"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "card": "shadow-[0_4px_24px_rgba(0,0,0,0.04)]",
+      "hover": "shadow-[0_12px_40px_rgba(0,0,0,0.08)]",
+      "button": "shadow-[0_4px_14px_rgba(27,78,255,0.25)]"
+    },
+    "border_radius": {
+      "card": "rounded-3xl",
+      "button": "rounded-full",
+      "pill": "rounded-full",
+      "image": "rounded-2xl"
+    },
+    "borders": {
+      "subtle": "border border-gray-100",
+      "active": "border-2 border-[#1B4EFF]"
+    }
+  },
+  "layouts": {
+    "global": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "page_spacing": "py-12 md:py-24",
+      "sidebar_layout": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8"
+    },
+    "screens": {
+      "1_landing_page": {
+        "layout": "Two-column hero (md:grid-cols-2). Massive H1 heading. Playful 3D-ish phone renders on the right.",
+        "elements": "4 Trust badges row below hero (small icons + text). 'Get Started' primary CTA pill."
+      },
+      "2_choose_mode": {
+        "layout": "Centered container. Grid with 2 massive interactive cards (md:grid-cols-2).",
+        "elements": "Cards for 'Choose Persona' vs 'Chat with Galaxy AI'. Strong hover scale and shadow."
+      },
+      "3_select_persona": {
+        "layout": "Grid layout: grid-cols-2 md:grid-cols-4 gap-6.",
+        "elements": "8 Persona cards (Student, Professional, Creator, Gamer, Traveller, Business Executive, Parent/Family, Tech Enthusiast). Illustrated characters centered in rounded-3xl cards with subtle borders."
+      },
+      "4_persona_experience": {
+        "layout": "Sidebar (col-span-1) with Needs/Budget/Preferences/Summary list. Main content (col-span-3) with 6 Need cards.",
+        "elements": "Needs cards (grid-cols-2 lg:grid-cols-3) with icons (All-day Battery, Performance, Camera, Display, Storage, Durability, Entertainment, Budget). Active states get blue border and checkmark."
+      },
+      "5_chat_with_galaxy_ai": {
+        "layout": "Sidebar (col-span-1) for History/Recommendations/Compare/Saved. Main area (col-span-3) for Chat interface.",
+        "elements": "Mascot bot avatar, user/bot chat bubbles, input field with send button."
+      },
+      "6_recommendations": {
+        "layout": "3 phone cards side-by-side (lg:grid-cols-3) gap-8.",
+        "elements": "Cards contain: Match % badge (green pill top right), Phone image, Title, Features list, Price, 'View Details' primary button."
+      },
+      "7_product_detail": {
+        "layout": "Two-column product split. Left: Large image gallery. Right: Specs and actions.",
+        "elements": "Specs pills (Battery, Processor, Camera, Display). 'Why we recommend' sections."
+      },
+      "8_reviews_and_gallery": {
+        "layout": "Tabbed interface: Overview | Specifications | Reviews | Gallery | Compare.",
+        "elements": "Reviews tab shows 4.6/5 rating bars. Gallery shows user photo grid (grid-cols-2 md:grid-cols-4)."
+      },
+      "9_buy_options": {
+        "layout": "Vertical stack or grid of 3 store cards.",
+        "elements": "Store cards (Samsung, Amazon, Flipkart) showing logo, price, and 'Buy Now' button."
+      }
+    }
+  },
+  "components": {
+    "cards": {
+      "base": "bg-white rounded-3xl border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden transition-all duration-300",
+      "hover": "hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1"
+    },
+    "buttons": {
+      "primary": "bg-[#1B4EFF] hover:bg-[#1428A0] text-white rounded-full px-8 py-3 font-semibold transition-all shadow-[0_4px_14px_rgba(27,78,255,0.25)] focus:ring-4 focus:ring-blue-100 outline-none",
+      "secondary": "bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-full px-8 py-3 font-semibold transition-all focus:ring-4 focus:ring-gray-50 outline-none",
+      "outline": "border-2 border-gray-200 hover:border-[#1B4EFF] text-gray-900 rounded-full px-8 py-3 font-semibold transition-all bg-transparent focus:ring-4 focus:ring-blue-50 outline-none"
+    },
+    "badges": {
+      "match": "bg-[#00C853] text-white text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full",
+      "spec": "bg-gray-50 text-gray-700 text-xs font-semibold px-4 py-2 rounded-full flex items-center gap-2 border border-gray-100"
+    },
+    "navigation": {
+      "header": "Sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100",
+      "sidebar_item": "flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium transition-colors"
+    },
+    "icons": {
+      "library": "lucide-react for UI interactions. react-icons for specific brands (e.g., FaAmazon, SiFlipkart)."
+    }
+  },
+  "image_urls": {
+    "phones": [
+      {
+        "url": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwyfHxzYW1zdW5nJTIwZ2FsYXh5JTIwcGhvbmV8ZW58MHx8fHwxNzg0MTgwNDE0fDA&ixlib=rb-4.1.0&q=85",
+        "category": "hero_phone",
+        "description": "Sleek modern Samsung phone on dark background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1707438095940-1eee18e85400?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxzYW1zdW5nJTIwZ2FsYXh5JTIwcGhvbmV8ZW58MHx8fHwxNzg0MTgwNDE0fDA&ixlib=rb-4.1.0&q=85",
+        "category": "product_recommendations",
+        "description": "Group of multiple colored phones"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1709744722656-9b850470293f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwzfHxzYW1zdW5nJTIwZ2FsYXh5JTIwcGhvbmV8ZW58MHx8fHwxNzg0MTgwNDE0fDA&ixlib=rb-4.1.0&q=85",
+        "category": "product_detail",
+        "description": "Close up camera array of phone"
+      }
+    ],
+    "avatars": [
+      {
+        "url": "https://images.unsplash.com/photo-1740252117027-4275d3f84385?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHw0fHwzZCUyMGNoYXJhY3RlciUyMGF2YXRhciUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NDE4MDQxNXww&ixlib=rb-4.1.0&q=85",
+        "category": "persona_professional",
+        "description": "Man with tie and sunglasses"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1740252117070-7aa2955b25f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwzfHwzZCUyMGNoYXJhY3RlciUyMGF2YXRhciUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NDE4MDQxNXww&ixlib=rb-4.1.0&q=85",
+        "category": "persona_creator",
+        "description": "Toy figure pink background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwxfHwzZCUyMGNoYXJhY3RlciUyMGF2YXRhciUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NDE4MDQxNXww&ixlib=rb-4.1.0&q=85",
+        "category": "persona_student",
+        "description": "Woman portrait"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1740252117044-2af197eea287?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwyfHwzZCUyMGNoYXJhY3RlciUyMGF2YXRhciUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NDE4MDQxNXww&ixlib=rb-4.1.0&q=85",
+        "category": "persona_traveller",
+        "description": "Cartoon character with blue hat"
+      }
+    ]
+  },
+  "testing": {
+    "attributes": {
+      "data_testid_rule": "MANDATORY on all interactive and key informational elements. Use role-based kebab-case naming.",
+      "examples": [
+        "data-testid='hero-get-started-btn'",
+        "data-testid='persona-card-student'",
+        "data-testid='need-card-battery'",
+        "data-testid='chat-input-field'",
+        "data-testid='recommendation-card-1'",
+        "data-testid='buy-now-amazon-btn'"
+      ]
+    }
+  },
+  "instructions_to_main_agent": [
+    "Build standard multi-page flows as distinct React components with clear state management.",
+    "Do NOT use 'Inter', 'Roboto', 'Open Sans', 'Lato' for Headings. Stick strictly to 'Manrope' or 'Geist'.",
+    "Use react-icons for brand logos (Amazon, Flipkart). E.g., import { FaAmazon } from 'react-icons/fa'.",
+    "Ensure 'Match %' badge is bright green (#00C853) with white text, styled as a pill.",
+    "Implement the 'Samsung Blue' (#1B4EFF) as the dominant accent color for CTA buttons and active states.",
+    "Maintain high optical clarity: No muddy or completely transparent header backgrounds. Use backdrop-blur with white/80 overlay for sticky headers.",
+    "Cards MUST have rounded-3xl corners and soft, luxurious shadows. Avoid sharp edges.",
+    "Use generous padding (p-8, p-12) inside major layout containers.",
+    "Always apply hover micro-interactions (slight scale up, shadow increase) to cards and buttons.",
+    "Provide javascript file implementations (.js or .jsx), not TypeScript."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "NEVER use placeholder URLs (via.placeholder.com etc.). Use provided Unsplash links.",
+    "Use lucide-react or react-icons for icons. DO NOT use emojis as icons.",
+    "DO NOT apply global transitions like 'transition: all' in global CSS. Add transitions explicitly.",
+    "DO NOT center align the app container in App.css.",
+    "Ensure high contrast on interactive elements. Do NOT use completely transparent backgrounds for overlays."
+  ]
+}
