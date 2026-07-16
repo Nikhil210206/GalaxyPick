@@ -44,6 +44,14 @@ winget install MongoDB.Server        # runs as a service
 Mongo needs no seeding — the catalog is a Python list, and the one collection
 (`chat_messages`) is created on first write.
 
+> **If chat returns a 500 with `command insert requires authentication`**, your mongod has
+> auth on. Only chat touches Mongo, so everything else keeps working and the problem hides
+> until you send a message. Either turn auth off for local dev — comment out
+> `security.authorization` in `/opt/homebrew/etc/mongod.conf` (macOS) and
+> `brew services restart mongodb-community@6.0` — or point `MONGO_URL` at a user with
+> `readWrite` on the `galaxypick` database:
+> `MONGO_URL=mongodb://user:pass@localhost:27017/galaxypick?authSource=admin`
+
 **2. Backend**
 
 ```bash
@@ -86,6 +94,20 @@ PORT=3000
 ```
 
 `server.py` reads `MONGO_URL` and `DB_NAME` at import and exits without them.
+
+### Deploying
+
+Nothing is hardcoded to localhost — every environment-specific value is already in those
+two files:
+
+- `MONGO_URL` takes any connection string, including Atlas
+  (`mongodb+srv://user:pass@cluster.../galaxypick`). Mongo only stores chat history, so
+  the free tier is ample.
+- `CORS_ORIGINS` is comma-separated and currently `*`. **Set it to your real frontend
+  origin before going public.**
+- `REACT_APP_BACKEND_URL` is baked in at build time by CRA, so it must be set before
+  `yarn build`, not at runtime.
+- Keep `backend/.env` out of the image and inject the Gemini key as a platform secret.
 
 ## Running
 

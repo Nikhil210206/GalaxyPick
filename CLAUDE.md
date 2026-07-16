@@ -53,9 +53,16 @@ two copies of the same truth silently drifted apart; they are the only thing tha
 
 Nothing here is installed by default; there is no Docker setup.
 
-1. **Node.js** (LTS) and **MongoDB Server**. Mongo listens on `localhost:27017` with no
-   auth, and the app seeds nothing — the catalog is a Python list, and `chat_messages`
-   is created on first write.
+1. **Node.js** (LTS) and **MongoDB Server**. Mongo listens on `localhost:27017`, and the
+   app seeds nothing — the catalog is a Python list, and `chat_messages` is created on
+   first write.
+   - **Mongo must accept unauthenticated writes, or `MONGO_URL` must carry credentials.**
+     `chat` is the *only* thing that touches Mongo, so an auth-enabled mongod hides:
+     the wizard, catalog and product pages all work, and the first chat message dies with
+     a 500 and `command insert requires authentication`. Turn auth off by commenting out
+     `security.authorization` in `/opt/homebrew/etc/mongod.conf` (macOS) and restarting
+     the service, or use
+     `MONGO_URL=mongodb://user:pass@localhost:27017/galaxypick?authSource=admin`.
    - macOS: `brew install node mongodb-community@6.0` then
      `brew services start mongodb-community@6.0`
    - Windows: `winget install OpenJS.NodeJS.LTS` and `winget install MongoDB.Server`
