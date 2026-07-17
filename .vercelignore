@@ -1,0 +1,18 @@
+# `vercel deploy` uploads the local working directory directly — it does NOT clone
+# fresh from GitHub, so .gitignore alone doesn't protect a CLI deploy the way it protects
+# a Git-triggered one. This bit us once already: a local frontend/.env with
+# REACT_APP_BACKEND_URL=http://localhost:8001 got uploaded and baked into the production
+# React build, overriding the same-origin fallback and breaking the deployed chat entirely.
+# Never remove the .env lines below.
+.env
+.env.*
+.env*
+
+node_modules/
+frontend/node_modules/
+frontend/build/
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/tests/
