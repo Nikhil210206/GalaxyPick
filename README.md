@@ -100,14 +100,15 @@ PORT=3000
 
 ### Deploying
 
-**See [DEPLOY.md](DEPLOY.md)** for the full walkthrough — it deploys free on Vercel
-(backend + frontend as two projects) with MongoDB Atlas M0, and lists the gotchas that
-actually bite: Atlas needs `0.0.0.0/0` because Vercel's outbound IPs are dynamic,
-`REACT_APP_BACKEND_URL` is baked in at build time, and `CORS_ORIGINS` must match your
-frontend origin exactly.
+**See [DEPLOY.md](DEPLOY.md)** for the full walkthrough — it deploys free on Vercel as a
+**single project** (frontend and backend as two Services in one `vercel.json`, sharing a
+domain) with MongoDB Atlas M0. Same origin means no CORS config and no backend URL to
+bake into the frontend build. The one gotcha that actually bites: Atlas needs `0.0.0.0/0`
+in Network Access, because Vercel's outbound IPs are dynamic.
 
-Nothing is hardcoded to localhost — every environment-specific value lives in the two
-`.env` files, and `backend/vercel.json` / `backend/.python-version` are already committed.
+Nothing is hardcoded to localhost — the only environment-specific values are in the two
+gitignored `.env` files, and `vercel.json` / `backend/.python-version` are already
+committed.
 
 ## Running
 

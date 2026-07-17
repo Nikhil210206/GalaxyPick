@@ -5,7 +5,7 @@ import { ArrowRight, Bookmark, GitCompareArrows } from 'lucide-react';
 import { Header } from '../components/Header';
 import { useSaved } from '../hooks/useSaved';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = `${process.env.REACT_APP_BACKEND_URL || ''}/api`;
 const fmt = (n) => `₹${n.toLocaleString('en-IN')}`;
 
 // Every `series` value in the catalog needs a home here, or those phones are only

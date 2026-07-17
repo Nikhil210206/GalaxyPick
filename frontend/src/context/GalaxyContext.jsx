@@ -1,7 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Falls back to a same-origin relative path when unset, rather than the literal
+// string "undefined/api" — this is what makes a single-Vercel-project deploy work,
+// where the frontend and API share one domain and REACT_APP_BACKEND_URL is unnecessary.
+const API = `${process.env.REACT_APP_BACKEND_URL || ''}/api`;
 const Ctx = createContext(null);
 
 export const GalaxyProvider = ({ children }) => {

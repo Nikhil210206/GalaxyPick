@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ArrowRight, Plus, X } from 'lucide-react';
 import { Header } from '../components/Header';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = `${process.env.REACT_APP_BACKEND_URL || ''}/api`;
 const fmt = (n) => `₹${n.toLocaleString('en-IN')}`;
 const MAX = 3;
 
