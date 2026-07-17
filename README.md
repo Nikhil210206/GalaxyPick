@@ -1,5 +1,7 @@
 # GalaxyPick
 
+A Capstone Project for Samsung Innovation Campus (SIC)
+
 A Samsung Galaxy phone recommender. Answer a few guided questions — or just describe what
 you want in your own words — and get matched against Samsung India's lineup, with specs,
 store links and an ecommerce-style product page.
