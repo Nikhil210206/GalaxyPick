@@ -21,9 +21,26 @@ from google.genai import types as genai_types
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-mongo_url = os.environ['MONGO_URL']
+
+def _required_env(name):
+    """Fail at import with a message that says what to do.
+
+    These are read at import, so a missing one takes the whole app down before any route
+    runs. On a serverless host that surfaces as an opaque 500 on every request, with a
+    bare KeyError buried in the logs — worth spending three lines to name the variable.
+    """
+    value = os.environ.get(name)
+    if not value:
+        raise RuntimeError(
+            f"{name} is not set. Locally, put it in backend/.env (see README). "
+            f"On a deployment, set it as an environment variable in the host's dashboard."
+        )
+    return value
+
+
+mongo_url = _required_env('MONGO_URL')
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+db = client[_required_env('DB_NAME')]
 
 GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-3.5-flash')
 

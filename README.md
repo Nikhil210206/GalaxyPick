@@ -57,8 +57,11 @@ Mongo needs no seeding — the catalog is a Python list, and the one collection
 ```bash
 cd backend
 python3 -m venv .venv
-./.venv/bin/pip install -r requirements.txt
+./.venv/bin/pip install -r requirements-dev.txt   # runtime + pytest
 ```
+
+`requirements.txt` is runtime only — it's what gets installed into the deployed bundle.
+`requirements-dev.txt` includes it and adds the test tooling, so use that locally.
 
 On Windows the venv interpreter is `.venv\Scripts\python.exe`.
 
@@ -97,17 +100,14 @@ PORT=3000
 
 ### Deploying
 
-Nothing is hardcoded to localhost — every environment-specific value is already in those
-two files:
+**See [DEPLOY.md](DEPLOY.md)** for the full walkthrough — it deploys free on Vercel
+(backend + frontend as two projects) with MongoDB Atlas M0, and lists the gotchas that
+actually bite: Atlas needs `0.0.0.0/0` because Vercel's outbound IPs are dynamic,
+`REACT_APP_BACKEND_URL` is baked in at build time, and `CORS_ORIGINS` must match your
+frontend origin exactly.
 
-- `MONGO_URL` takes any connection string, including Atlas
-  (`mongodb+srv://user:pass@cluster.../galaxypick`). Mongo only stores chat history, so
-  the free tier is ample.
-- `CORS_ORIGINS` is comma-separated and currently `*`. **Set it to your real frontend
-  origin before going public.**
-- `REACT_APP_BACKEND_URL` is baked in at build time by CRA, so it must be set before
-  `yarn build`, not at runtime.
-- Keep `backend/.env` out of the image and inject the Gemini key as a platform secret.
+Nothing is hardcoded to localhost — every environment-specific value lives in the two
+`.env` files, and `backend/vercel.json` / `backend/.python-version` are already committed.
 
 ## Running
 

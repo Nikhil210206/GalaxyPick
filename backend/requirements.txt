@@ -1,15 +1,13 @@
-# Runtime — what server.py and phones.py actually import.
+# Runtime — exactly what server.py and phones.py import. This is what Vercel installs
+# into the deployed bundle, so keep test-only packages in requirements-dev.txt.
+#
 # Deliberately unpinned: the previous pins (fastapi==0.110.1, uvicorn==0.25.0) failed to
-# resolve on modern Python and pulled a wheel from a third-party asset host.
+# resolve on modern Python and pulled an unrelated wheel from a third-party asset host.
 fastapi
-uvicorn
+uvicorn               # local dev server; Vercel supplies its own ASGI runner
 motor                 # brings pymongo
 pymongo
 pydantic
 python-dotenv
 httpx                 # /api/location
 google-genai          # Galaxy AI chat
-
-# Tests
-pytest
-pytest-xdist          # pytest.ini requires it: addopts = -n 2 --dist loadscope

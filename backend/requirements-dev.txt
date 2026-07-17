@@ -1,0 +1,6 @@
+# Test-only dependencies. Kept out of requirements.txt so they aren't installed into the
+# deployed Vercel bundle.
+-r requirements.txt
+
+pytest
+pytest-xdist          # pytest.ini requires it: addopts = -n 2 --dist loadscope
